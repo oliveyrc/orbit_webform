@@ -1,5 +1,7 @@
 # Orbit Webform
 
+![Orbit Webform logo](assets/orbit-webform-logo.svg)
+
 Orbit Webform is a custom Drupal 11 module that provides a curated Webform setup for Orbit projects.
 
 The module installs an example Webform, limits which Webform element types site builders can add, and applies default submission purge settings to newly created Webforms.
