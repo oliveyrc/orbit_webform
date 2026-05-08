@@ -67,9 +67,10 @@ class OrbitWebformInstallTest extends KernelTestBase {
     $this->installSchema('webform', ['webform']);
     $this->installConfig(['captcha', 'webform', 'orbit_webform']);
 
-    // Re-apply the restriction after Webform's default config has been
+    // Apply install-time changes after Webform's default config has been
     // installed in the Kernel test environment.
     \Drupal::moduleHandler()->loadInclude('orbit_webform', 'install');
+    orbit_webform_disable_default_webform_pages();
     orbit_webform_limit_webform_element_types();
   }
 
@@ -102,6 +103,13 @@ class OrbitWebformInstallTest extends KernelTestBase {
 
     $this->assertArrayHasKey('webform_address', $excluded_element_types);
     $this->assertArrayHasKey('webform_name', $excluded_element_types);
+  }
+
+  /**
+   * Tests dedicated URL pages are disabled for new Webforms by default.
+   */
+  public function testDedicatedWebformPagesAreDisabledByDefault(): void {
+    $this->assertFalse($this->config('webform.settings')->get('settings.default_page'));
   }
 
   /**

@@ -11,7 +11,18 @@ declare(strict_types=1);
  * Implements hook_install().
  */
 function orbit_webform_install(): void {
+  orbit_webform_disable_default_webform_pages();
   orbit_webform_limit_webform_element_types();
+}
+
+/**
+ * Disable dedicated URL pages for newly created Webforms.
+ */
+function orbit_webform_disable_default_webform_pages(): void {
+  \Drupal::configFactory()
+    ->getEditable('webform.settings')
+    ->set('settings.default_page', FALSE)
+    ->save(TRUE);
 }
 
 /**
@@ -60,4 +71,11 @@ function orbit_webform_allowed_webform_element_types(): array {
     'webform_markup',
     'managed_file',
   ];
+}
+
+/**
+ * Disable dedicated URL pages for newly created Webforms.
+ */
+function orbit_webform_update_11001(): void {
+  orbit_webform_disable_default_webform_pages();
 }

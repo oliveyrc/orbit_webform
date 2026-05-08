@@ -42,7 +42,9 @@ The restriction is applied when the module is installed by updating Webform's `e
 
 ## Default Webform Settings
 
-For newly created Webforms, the module sets default purge behavior:
+The module disables dedicated URL pages for newly created Webforms by default.
+
+For newly created Webforms, the module also sets default purge behavior:
 
 - Purge authenticated and anonymous submissions.
 - Purge submissions older than 30 days.
