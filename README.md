@@ -1,6 +1,6 @@
 # Orbit Webform
 
-<img src="assets/orbit-webform-logo.svg" alt="rbit Webform logo" width="150" height="150" />
+<img src="assets/orbit-webform-logo.svg" alt="Orbit Webform logo" width="150" height="150" />
 
 Orbit Webform is a custom Drupal 11 module that provides a curated Webform setup for Orbit projects.
 
@@ -50,6 +50,16 @@ For newly created Webforms, the module sets default purge behavior:
 ## Composer
 
 The module includes its own `composer.json` for future packaging and dependency management.
+
+## Testing
+
+The module includes Drupal Kernel test coverage for install config, allowed Webform elements, and default purge settings.
+
+From a Drupal project with PHPUnit installed, run:
+
+```bash
+SIMPLETEST_DB=sqlite://localhost/sites/default/files/.ht.sqlite vendor/bin/phpunit -c web/core/phpunit.xml.dist web/modules/custom/orbit_webform/tests/src/Kernel
+```
 
 ## License
 

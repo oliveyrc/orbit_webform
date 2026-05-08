@@ -20,5 +20,5 @@ function orbit_webform_webform_create(WebformInterface $webform) {
   // Set purge authenticated and anonymous users submissions.
   $webform->setSetting('purge', 'all');
   // Set purge submissions more than 30 days old.
-  $webform->setSetting('purge_days', '30');
+  $webform->setSetting('purge_days', 30);
 }
