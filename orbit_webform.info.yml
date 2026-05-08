@@ -1,0 +1,9 @@
+name: Orbit Webform
+type: module
+description: Provides Orbit webforms.
+package: Custom
+core_version_requirement: ^11
+php: 8.4
+dependencies:
+  - captcha:captcha
+  - webform:webform
