@@ -17,6 +17,16 @@ function orbit_webform_install(): void {
 }
 
 /**
+ * Implements hook_uninstall().
+ */
+function orbit_webform_uninstall(): void {
+  $webform = \Drupal\webform\Entity\Webform::load('form_elements');
+  if ($webform) {
+    $webform->delete();
+  }
+}
+
+/**
  * Disable dedicated URL pages for newly created Webforms.
  */
 function orbit_webform_disable_default_webform_pages(): void {

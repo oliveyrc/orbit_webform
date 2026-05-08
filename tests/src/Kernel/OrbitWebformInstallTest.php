@@ -93,6 +93,18 @@ class OrbitWebformInstallTest extends KernelTestBase {
   }
 
   /**
+   * Tests uninstall removes the installed form elements Webform.
+   */
+  public function testUninstallRemovesFormElementsWebform(): void {
+    $this->assertNotNull(Webform::load('form_elements'));
+
+    \Drupal::moduleHandler()->loadInclude('orbit_webform', 'install');
+    orbit_webform_uninstall();
+
+    $this->assertNull(Webform::load('form_elements'));
+  }
+
+  /**
    * Tests Webform element restrictions.
    */
   public function testOnlyAllowedElementsAreAvailable(): void {
