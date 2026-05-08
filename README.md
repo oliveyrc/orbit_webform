@@ -44,6 +44,8 @@ The restriction is applied when the module is installed by updating Webform's `e
 
 The module disables dedicated URL pages for newly created Webforms by default.
 
+The module also adds `full-width` to Webform's available wrapper CSS classes.
+
 For newly created Webforms, the module also sets default purge behavior:
 
 - Purge authenticated and anonymous submissions.

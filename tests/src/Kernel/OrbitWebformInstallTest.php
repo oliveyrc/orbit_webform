@@ -71,6 +71,7 @@ class OrbitWebformInstallTest extends KernelTestBase {
     // installed in the Kernel test environment.
     \Drupal::moduleHandler()->loadInclude('orbit_webform', 'install');
     orbit_webform_disable_default_webform_pages();
+    orbit_webform_add_full_width_wrapper_class();
     orbit_webform_limit_webform_element_types();
   }
 
@@ -110,6 +111,15 @@ class OrbitWebformInstallTest extends KernelTestBase {
    */
   public function testDedicatedWebformPagesAreDisabledByDefault(): void {
     $this->assertFalse($this->config('webform.settings')->get('settings.default_page'));
+  }
+
+  /**
+   * Tests full-width is available as a wrapper CSS class.
+   */
+  public function testFullWidthWrapperClassIsAvailable(): void {
+    $wrapper_classes = $this->config('webform.settings')->get('element.wrapper_classes');
+
+    $this->assertStringContainsString('full-width', $wrapper_classes);
   }
 
   /**

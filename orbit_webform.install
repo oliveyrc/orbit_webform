@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 function orbit_webform_install(): void {
   orbit_webform_disable_default_webform_pages();
+  orbit_webform_add_full_width_wrapper_class();
   orbit_webform_limit_webform_element_types();
 }
 
@@ -22,6 +23,24 @@ function orbit_webform_disable_default_webform_pages(): void {
   \Drupal::configFactory()
     ->getEditable('webform.settings')
     ->set('settings.default_page', FALSE)
+    ->save(TRUE);
+}
+
+/**
+ * Add Orbit wrapper classes to Webform's element class suggestions.
+ */
+function orbit_webform_add_full_width_wrapper_class(): void {
+  $config = \Drupal::configFactory()->getEditable('webform.settings');
+  $wrapper_classes = $config->get('element.wrapper_classes') ?? '';
+  $classes = preg_split('/\r\n|\r|\n/', $wrapper_classes);
+  $classes = array_filter(array_map('trim', $classes));
+
+  if (!in_array('full-width', $classes, TRUE)) {
+    $classes[] = 'full-width';
+  }
+
+  $config
+    ->set('element.wrapper_classes', implode(PHP_EOL, $classes) . PHP_EOL)
     ->save(TRUE);
 }
 
@@ -78,4 +97,11 @@ function orbit_webform_allowed_webform_element_types(): array {
  */
 function orbit_webform_update_11001(): void {
   orbit_webform_disable_default_webform_pages();
+}
+
+/**
+ * Add full-width to Webform's wrapper CSS class suggestions.
+ */
+function orbit_webform_update_11002(): void {
+  orbit_webform_add_full_width_wrapper_class();
 }
