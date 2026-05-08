@@ -1,6 +1,6 @@
 # Orbit Webform
 
-![Orbit Webform logo](assets/orbit-webform-logo.svg)
+<img src="assets/orbit-webform-logo.svg" alt="rbit Webform logo" width="150" height="150" />
 
 Orbit Webform is a custom Drupal 11 module that provides a curated Webform setup for Orbit projects.
 
