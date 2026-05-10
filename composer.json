@@ -1,5 +1,5 @@
 {
-    "name": "orbit/orbit_webform",
+    "name": "oliveyrc/orbit_webform",
     "description": "Provides Orbit webforms and Webform element restrictions.",
     "type": "drupal-custom-module",
     "license": "MIT",

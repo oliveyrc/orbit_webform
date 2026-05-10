@@ -65,6 +65,11 @@ From a Drupal project with PHPUnit installed, run:
 SIMPLETEST_DB=sqlite://localhost/sites/default/files/.ht.sqlite vendor/bin/phpunit -c web/core/phpunit.xml.dist web/modules/custom/orbit_webform/tests/src/Kernel
 ```
 
+## Related Orbit Modules
+
+- [Orbit Paragraphs](https://github.com/oliveyrc/orbit_paragraphs)
+- [Orbit Webform](https://github.com/oliveyrc/orbit_webform)
+
 ## License
 
 This module is licensed under the MIT License.
